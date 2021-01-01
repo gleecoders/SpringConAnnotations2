@@ -1,13 +1,13 @@
 package es.desancheztorres.pruebaAnnotations;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class UsoAnnotations2 {
 
 	public static void main(String[] args) {
 		
-		// leer el xml de configuracion
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		// leer el class de configuracion
+		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(EmpleadosConfig.class);
 		
 		// pedir un bean al contenedor
 		Empleados Cristian = context.getBean("comercialExperimentado", Empleados.class);
