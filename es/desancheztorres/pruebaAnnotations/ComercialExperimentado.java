@@ -1,13 +1,27 @@
 package es.desancheztorres.pruebaAnnotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@Scope("prototype")
 public class ComercialExperimentado implements Empleados {
+	
+	// ejecucion de codigo despues de creacion del Bean
+	
+	@PostConstruct
+	public void ejecutaDespuesCreacion() {
+		System.out.println("Ejecutado tras creacion del Bean");
+	}
+	
+	// ejecucion de codigo despues de apagado contenedor Spring
+	@PreDestroy
+	public void ejecutaAntesDestruccion() {
+		System.out.println("Ejecutando antes de la destruccion");
+	}
 	
 	public ComercialExperimentado() {
 		
